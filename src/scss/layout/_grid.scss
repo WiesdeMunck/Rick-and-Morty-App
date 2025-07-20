@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+
+.grid-item {
+	display: grid;
+	grid-template-columns:
+		[full-start]
+		1fr
+		[main-start] min(var(--grid-main-max), var(--grid-main-width)) [main-end]
+		1fr
+		[full-end];
+
+	> :where(*) {
+		grid-column: main;
+	}
+}
+
+.grid-item__child-full-width {
+	grid-column: full-start / full-end;
+}
+
+.grid-item__small {
+	@include for-tablet-l-up {
+		max-width: 56.25rem;
+		margin: 0 auto;
+	}
+}

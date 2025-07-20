@@ -1,0 +1,67 @@
+/* makes sizing simpler */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+/* dark mode user-agent-styles */
+/* improves punctuation in supported browsers */
+html {
+	// color-scheme: dark light;
+	hanging-punctuation: first last;
+}
+
+/* min body height */
+body {
+	min-height: 100svh;
+	display: flex;
+	flex-direction: column;
+}
+
+#root {
+	display: contents;
+}
+
+main {
+	flex: 1; // fill remaining space
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+/* improve readability with max-width on paragraphs and lists */
+/* prevent orphans in supported browsers */
+p,
+li {
+	// Maybe increase this to 75ch this is the max okay to read length
+	// If --p-max-width is set, it will use that value instead otherise it will use 65ch
+	max-width: var(--p-max-width, 65ch);
+	text-wrap: pretty;
+}
+
+// Removes basic styling from buttons
+button {
+	all: unset;
+	cursor: pointer;
+}
+
+// set focus styling for all focusable elements
+*:focus-visible {
+	outline: 4px solid var(--clr-primary--400);
+	outline-offset: 2px;
+}

@@ -1,0 +1,62 @@
+@use 'sass:math';
+
+// ----------------------------------------------------------------------------
+// #Custom-MQ
+//
+// Based on "The 100% correct way to do CSS breakpoints"
+// https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+//
+// ----------------------------------------------------------------------------
+@mixin for-phone-only {
+	@media (max-width: math.div(599px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-tablet-p-up {
+	@media (min-width: math.div(600px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-tablet-p-only {
+	@media (max-width: math.div(899px, 16px) * 1em) and (min-width: math.div(600px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin until-tablet-l {
+	@media (max-width: math.div(899px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-tablet-l-up {
+	@media (min-width: math.div(900px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-tablet-l-only {
+	@media (max-width: math.div(1199px, 16px) * 1em) and (min-width: math.div(900px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-desktop-up {
+	@media (min-width: math.div(1200px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-desktop-only {
+	@media (max-width: math.div(1799px, 16px) * 1em) and (min-width: math.div(1200px, 16px) * 1em) {
+		@content;
+	}
+}
+
+@mixin for-big-desktop-up {
+	@media (min-width: math.div(1800px, 16px) * 1em) {
+		@content;
+	}
+}

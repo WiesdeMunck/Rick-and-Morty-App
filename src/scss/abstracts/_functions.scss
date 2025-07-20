@@ -1,0 +1,43 @@
+@use 'sass:math';
+
+// Function to create fluid size no need for utopia.fi anymore ;)
+// Here you can find the read about this:
+// https://www.smashingmagazine.com/2022/10/fluid-typography-clamp-sass-functions/
+//
+// Here we use the default min and max breakpoint size of 400px / 1200px
+//
+// Usage:
+// font-size: #{fluid(min-size, max-size, optional min-breakpoint, optional max-breakpoint)};
+//
+// Example:
+// font-size: #{fluid(16px, 31px)};
+//
+// Output:
+// font-size: clamp(1rem, 0.531rem + 1.88vw, 1.938rem);
+
+$default-min-bp: 400px;
+$default-max-bp: 1200px;
+
+@function round($number, $decimals: 0) {
+	$n: 1;
+	@if $decimals > 0 {
+		@for $i from 1 through $decimals {
+			$n: $n * 10;
+		}
+	}
+	@return math.div(math.round($number * $n), $n);
+}
+
+@function px-to-rem($px) {
+	$rems: math.div($px, 16px) * 1rem;
+	@return $rems;
+}
+
+@function fluid($min-size, $max-size, $min-breakpoint: $default-min-bp, $max-breakpoint: $default-max-bp, $unit: vw) {
+	$slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+	$slope-to-unit: round($slope * 100, 2);
+	$intercept-rem: round(px-to-rem($min-size - $slope * $min-breakpoint), 2);
+	$min-size-rem: round(px-to-rem($min-size), 2);
+	$max-size-rem: round(px-to-rem($max-size), 2);
+	@return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
+}

@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+// 400 is the base for the colour
+:root {
+	//// colors
+	// neutrals
+	//// 100 is always white
+	--clr-neutral--100: #ffffff; // white
+	--clr-neutral--200: #EBEDF0; // light grey
+	--clr-neutral--300: #A0A3A8; // grey
+	//// 900 is always black
+	--clr-neutral--900: #000000; // black
+
+	// brand colors
+	--clr-neutral--800: #25282B;
+	--clr-primary--400: #03B0C8; // blue
+	--clr-primary--500: #0A7B9D; // dark blue
+
+	/*  The secondary colours are counted by numbers -1 and -2 etc if there different colours the --400, --500 is for shades */
+	--clr-secondary-1--400: #2AC769; // green
+	--clr-secondary-2--400: #B82828; // red
+
+	// grid
+	--grid-main-max: 75rem; // 1200px
+	--grid-margin: #{fluid(20px, 80px)};
+	--grid-main-width: calc(100% - (var(--grid-margin) * 2));
+	--grid-spacing-side: max(var(--grid-margin), (100vw - var(--grid-main-max)) / 2);
+}

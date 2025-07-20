@@ -1,0 +1,5 @@
+.focus--invert-color {
+    &:focus-visible {
+        outline: 4px solid var(--clr-neutral--200);
+    }
+}

@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.category-search {
+	padding-block-start: 3.5rem;
+	align-items: center;
+
+	display: grid;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-inline: auto;
+
+	.category-search__title {
+		color: var(--clr-neutral--100);
+	}
+	.category-search__form {
+		flex: 1;
+	}
+	.category-search__search-input {
+		width: 100%;
+		max-width: 18.75rem;
+		padding: 0.5rem 0.5rem;
+		border-radius: 0.25rem;
+		border: none;
+	}
+}

@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.pagination-wrapper {
+ 	display: flex;
+	gap: 1rem;
+	place-items: center;
+
+	&__count {
+		font-weight: 700;
+		// Progressively enhancement for better centering
+		text-box-trim: trim-both;
+	}
+}

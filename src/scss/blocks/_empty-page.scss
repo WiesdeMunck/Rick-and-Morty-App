@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.empty-page {
+	height: 100%;
+	display: grid;
+	place-items: center;
+
+	&__title {
+		text-align: center;
+	}
+}

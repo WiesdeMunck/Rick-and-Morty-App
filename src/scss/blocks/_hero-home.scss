@@ -1,0 +1,15 @@
+.home-hero {
+	display: grid;
+	min-height: 21.9375rem;
+	position: relative;
+	justify-items: center;
+	align-content: center;
+	text-align: center;
+
+	&__img {
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		z-index: -1;
+	}
+}

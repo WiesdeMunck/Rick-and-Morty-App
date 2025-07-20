@@ -1,0 +1,68 @@
+@use '../abstracts/' as *;
+
+// Setup base typography styles
+:root {
+	// Font sizes
+	--fs-300: 0.75rem; // 0.75rem
+	--fs-400: 1rem; // 16px
+	--fs-800: 1.375rem; // 22px
+	--fs-900: #{fluid(32px, 48px)};
+
+	// Font families
+	--ff-primary: 'Roboto', sans-serif; // Primary font family
+}
+
+.ff-primary {
+	font-family: var(--ff-primary);
+}
+
+// .ff-primary--bold {
+// 	font-family: var(--ff-primary--medium);
+// }
+
+:where(body) {
+	color: var(--clr-neutral--800);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	text-wrap: balance;
+}
+
+:where(h1, .h1) {
+	line-height: 1.17; // 56px
+	font-family: var(--ff-primary);
+	font-size: var(--fs-900);
+	font-weight: 700;
+}
+
+:where(h2, .h2) {
+	line-height: 1; // 24px
+	font-family: var(--ff-primary);
+	font-size: var(--fs-800);
+	font-weight: 500;
+}
+
+:where(h3, .h3) {
+	line-height: 1.5; // 24px
+	font-family: var(--ff-primary);
+	font-weight: 700;
+	font-size: var(--fs-400);
+}
+
+:where(body, p, .p) {
+	line-height: 1.5; // 24px
+	font-family: var(--ff-primary);
+	font-size: var(--fs-400);
+}
+

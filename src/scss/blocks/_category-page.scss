@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+.category-page {
+	display: flex;
+	flex-direction: column;
+}
+
+section:last-of-type {
+	flex-grow: 1; // fill remaining space
+}

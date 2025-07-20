@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.cards-wrapper {
+	// Sets the amount of cards at the max width
+	--amount-of-cards: 5;
+	--gap-size: 0.75rem;
+	--card-width: calc(
+		var(--grid-main-max) / var(--amount-of-cards) - var(--gap-size)
+	);
+	display: grid;
+	gap: var(--gap-size);
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(min(100%, var(--card-width)), 1fr)
+	);
+	padding-block: 1.5rem;
+
+	@include for-tablet-l-up {
+		padding-block: 2rem;
+	}
+}

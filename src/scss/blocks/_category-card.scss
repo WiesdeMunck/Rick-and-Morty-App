@@ -1,0 +1,107 @@
+@use '../abstracts' as *;
+
+.category-card {
+	background-color: var(--clr-neutral--100);
+	border-radius: 0.25rem;
+	display: grid;
+	grid-template-columns: 76px 1fr;
+	transition: box-shadow 0.3s ease;
+	opacity: 1;
+	// Allow-discrete is not supported in all browsers, so I'm using it as a progressive enhancement
+	transition: opacity 0.6s ease, display 0s allow-discrete;
+
+	@starting-style {
+		transition: opacity 0s ease, display 0s allow-discrete;
+		opacity: 0;
+	}
+
+	&:has(.category-card__btn:hover) {
+		box-shadow: 0 2px 0px
+			color-mix(in srgb, var(--clr-neutral--800) 76%, transparent);
+	}
+
+	&__img-wrapper {
+		position: relative;
+		border-radius: 0.25rem 0 0 0.25rem;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 1;
+		// Allow-discrete is not supported in all browsers, so I'm using it as a progressive enhancement
+		transition: opacity 0.6s ease, display 0s allow-discrete;
+
+		@starting-style {
+			transition: opacity 0s ease, display 0s allow-discrete;
+			opacity: 0;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding: 0.75rem;
+	}
+
+	&__text {
+		margin-block-end: 1rem;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 0.625rem;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			margin-inline-end: 0.5rem;
+		}
+
+		&.category-card__text--alive::before {
+			// This is the alt text for the status circle
+			content: '' / 'Status circle green';
+			background-color: var(--clr-secondary-1--400);
+		}
+		&.category-card__text--dead::before {
+			// This is the alt text for the status circle
+			content: '' / 'Status circle red';
+			background-color: var(--clr-secondary-2--400);
+		}
+		&.category-card__text--unknown::before {
+			// This is the alt text for the status circle
+			content: '' / 'Status circle unknown';
+			background-color: var(--clr-neutral--300);
+		}
+	}
+
+	&__btn {
+		place-items: self-end;
+		margin-block-start: auto;
+		display: flex;
+		gap: 0.5rem;
+		border-radius: 0.25rem;
+		grid-column: span 2;
+		justify-self: end;
+		align-items: center;
+		align-self: self-end;
+		// this is a progressive enhancement for better centering
+		text-box-trim: both;
+		text-decoration: underline;
+		text-decoration-thickness: 0.125rem;
+		text-decoration-color: transparent;
+		text-underline-offset: 0.1875rem;
+		transition: text-decoration-color 0.3s ease;
+
+		&:hover {
+			text-decoration-color: var(--clr-neutral--800);
+		}
+	}
+
+	&__chevron {
+		height: 1rem;
+		width: auto;
+	}
+}
